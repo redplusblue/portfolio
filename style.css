@@ -7,6 +7,32 @@
   --secondary-color: #fff;
 }
 
+html {
+  scroll-timeline: --page-scroll block;
+}
+
+@keyframes grow-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+#progress {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0.1em;
+  background: white;
+
+  transform-origin: 0 50%;
+  animation: grow-progress auto linear;
+  animation-timeline: --page-scroll;
+}
+
 body {
   margin: 0px;
   font-family: "segoe ui";
@@ -15,14 +41,22 @@ body {
   align-items: center;
   justify-content: space-between;
   min-height: 100vh;
+  background: url(assets/bg.jpeg);
+  background-position: center;
+  background-size: cover;
+  /* height: 300vh; */
 }
 
 /* Nav Bar */
 .nav {
-  height: 50px;
-  width: 100%;
-  background-color: #4d4d4d;
-  position: relative;
+  height: fit-content;
+  width: fit-content;
+  /* position: relative; */
+  /* make sticky to top */
+  position: sticky;
+  top: 0.1em;
+  z-index: 1;
+  backdrop-filter: blur(10px);
 }
 
 .nav > .nav-header {
@@ -63,6 +97,12 @@ body {
 }
 
 @media (max-width: 600px) {
+  .nav {
+    height: 50px;
+    width: 100%;
+    background-color: var(--primary-color);
+  }
+
   .nav > .nav-btn {
     display: inline-block;
     position: absolute;
@@ -87,19 +127,25 @@ body {
   }
   .nav > .nav-links {
     position: absolute;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
-    background-color: #333;
+    background: url(assets/menu.jpeg);
+    background-position: center;
+    background-size: cover;
+    /* background-color: #333; */
     height: 0px;
     transition: all 0.3s ease-in;
     overflow-y: hidden;
     top: 50px;
     left: 0px;
   }
-  .nav > .nav-links > a {
-    display: block;
-    width: 100%;
+  .nav > .nav-links > button {
+    width: 150px;
   }
+
   .nav > #nav-check:not(:checked) ~ .nav-links {
     height: 0px;
   }
@@ -110,20 +156,21 @@ body {
 }
 
 /* Buttons */
-.btn-12,
-.btn-12 *,
-.btn-12 :after,
-.btn-12 :before,
-.btn-12:after,
-.btn-12:before {
+.nav-btn,
+.nav-btn *,
+.nav-btn :after,
+.nav-btn :before,
+.nav-btn:after,
+.nav-btn:before {
   border: 0 solid;
   box-sizing: border-box;
 }
 
-.btn-12 {
+.nav-btn {
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: button;
-  background-color: #000;
+  background-color: #00000000;
+  opacity: 0.9;
   background-image: none;
   color: #fff;
   cursor: pointer;
@@ -139,24 +186,24 @@ body {
   text-transform: uppercase;
 }
 
-.btn-12:disabled {
+.nav-btn:disabled {
   cursor: default;
 }
 
-.btn-12:-moz-focusring {
+.nav-btn:-moz-focusring {
   outline: auto;
 }
 
-.btn-12 svg {
+.nav-btn svg {
   display: block;
   vertical-align: middle;
 }
 
-.btn-12 [hidden] {
+.nav-btn [hidden] {
   display: none;
 }
 
-.btn-12 {
+.nav-btn {
   /* border-radius: 99rem; */
   /* border-width: 2px; */
   overflow: hidden;
@@ -164,12 +211,12 @@ body {
   position: relative;
 }
 
-.btn-12 span {
+.nav-btn span {
   mix-blend-mode: difference;
 }
 
-.btn-12:after,
-.btn-12:before {
+.nav-btn:after,
+.nav-btn:before {
   background: linear-gradient(
     90deg,
     #fff 25%,
@@ -186,7 +233,7 @@ body {
   transition: transform 0.2s ease;
 }
 
-.btn-12:after {
+.nav-btn:after {
   --progress: -100%;
   background: linear-gradient(
     90deg,
@@ -201,45 +248,27 @@ body {
   z-index: -1;
 }
 
-.btn-12:hover:after,
-.btn-12:hover:before {
+.nav-btn:hover:after,
+.nav-btn:hover:before {
   --progress: 0;
 }
 
 .about {
-  border: red 1px solid;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 300px;
+  color: #fff;
 }
 
-/* Open book */
-#container {
+.greeting {
+  height: 80vh;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* overflow: hidden; */
-  /* margin: auto; */
-}
-
-.door {
-  /* padding: 10px; */
-  background-color: var(--primary-color);
-  max-width: 100%;
-  height: 100%;
-  min-height: 50vh;
-  min-width: 100px;
-  transition: transform 1s ease; /* Use 'transform' property for smooth animation */
-  transform-origin: left center; /* Set the transform origin to the left edge */
-}
-
-.left-open {
-  transform: translateX(-50%); /* Translate the left door to the left */
-}
-
-.right-open {
-  transform: translateX(50%); /* Translate the right door to the right */
 }

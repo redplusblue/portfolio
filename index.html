@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome!</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="cards.css" />
   </head>
   <body>
     <!--Structure: 
@@ -14,6 +15,7 @@
       | Projects -> Scroll down
       || Contact -> Another page 
     -->
+    <div id="progress"></div>
     <nav class="nav">
       <input type="checkbox" id="nav-check" />
       <div class="nav-btn">
@@ -25,22 +27,79 @@
       </div>
 
       <div class="nav-links">
-        <button class="btn-12"><span>About</span></button>
-        <button class="btn-12"><span>Skills</span></button>
-        <button class="btn-12"><span>Projects</span></button>
-        <button class="btn-12"><span>Contact</span></button>
+        <button class="nav-btn"><span>About</span></button>
+        <button class="nav-btn"><span>Skills</span></button>
+        <button class="nav-btn"><span>Projects</span></button>
+        <button class="nav-btn"><span>Contact</span></button>
         <!-- <a href="" target="_blank">About</a> -->
       </div>
     </nav>
-    <div class="about">
-      <div id="container">
-        <div id="left" class="door"></div>
-        <div id="right" class="door"></div>
-      </div>
-    </div>
-    <div class="skills"></div>
-    <div class="projects"></div>
-    <div class="contact"></div>
+    <div class="greeting">Hi</div>
+    <main>
+      <ul id="cards">
+        <li class="card" id="card_1">
+          <div class="card__content">
+            <div>
+              <h2>I'm Samir</h2>
+              <p>A computer programmer.</p>
+              <p class="ui-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
+                debitis eius ex, deserunt, velit laudantium nihil quibusdam id
+                sunt odit ipsam aperiam quae architecto minus nam maiores
+                corporis. Delectus, enim.
+              </p>
+              <button class="ui-btn"><span>Read More</span></button>
+            </div>
+            <figure>
+              <img src="assets/image.png" alt="Image description" />
+            </figure>
+          </div>
+        </li>
+        <li class="card" id="card_2">
+          <div class="card__content">
+            <div>
+              <h2>Card Two</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p><a href="#top" class="btn btn--accent">Read more</a></p>
+            </div>
+            <figure>
+              <img
+                src="https://codyhouse.co/demo-tutorials/stacking-cards/assets/img/img-2.jpg"
+                alt="Image description"
+              />
+            </figure>
+          </div>
+        </li>
+        <li class="card" id="card_3">
+          <div class="card__content">
+            <div>
+              <h2>Card Three</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p><a href="#top" class="btn btn--accent">Read more</a></p>
+            </div>
+            <figure>
+              <img
+                src="https://codyhouse.co/demo-tutorials/stacking-cards/assets/img/img-3.jpg"
+                alt="Image description"
+              />
+            </figure>
+          </div>
+        </li>
+      </ul>
+    </main>
+    <aside>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus,
+        ipsam molestias. Fuga similique, dolor tempora rerum perferendis ipsam
+        ullam doloribus beatae esse facilis quae sit excepturi expedita non,
+        sunt accusantium magnam? Animi nesciunt nostrum eligendi iusto
+        voluptatum hic qui. Quod distinctio qui nobis et doloremque. Fuga,
+        itaque? Laborum dignissimos nobis quaerat optio voluptatum similique
+        unde, neque cupiditate, vel, fugiat dolore? Accusantium neque deserunt
+        ducimus enim, illum laborum magni ipsam eos optio aspernatur nam
+        necessitatibus quod natus, dolor laboriosam illo velit.
+      </p>
+    </aside>
   </body>
   <script src="main.js"></script>
 </html>
