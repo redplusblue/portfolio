@@ -23,6 +23,16 @@
 
 #card_1 {
   --index: 1;
+  /* Create View Timeline */
+  view-timeline-name: --revealing-image;
+  view-timeline-axis: block;
+  /* Attach animation, linked to the  View Timeline */
+  animation: linear reveal both;
+  animation-timeline: --revealing-image;
+  backdrop-filter: blur(10px);
+
+  /* Tweak range when effect should run*/
+  animation-range: entry 5% cover 15%;
 }
 
 #card_2 {
@@ -31,10 +41,6 @@
 
 #card_3 {
   --index: 3;
-}
-
-#card_4 {
-  --index: 4;
 }
 
 .card {
@@ -129,26 +135,59 @@ header {
   outline: var(--outline-width) solid hotpink;
 }
 
-.card__content {
+@keyframes reveal {
+  from {
+    opacity: 0;
+    clip-path: inset(45% 20% 45% 20%);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0% 0% 0% 0%);
+  }
+}
+
+#card_1 > .card__content,
+#card_3 > .card__content {
   box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
   /* background: rgb(255, 255, 255); */
   backdrop-filter: blur(15px);
   color: white;
   border-radius: 1em;
   overflow: hidden;
-
   display: grid;
   grid-template-areas: "text img";
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-
+  min-height: 80vh;
   align-items: stretch;
   outline: var(--outline-width) solid lime;
 }
 
-.card__content > div {
+#card_2 > .card__content {
+  backdrop-filter: blur(15px);
+  background-color: rgba(0, 0, 0, 0.137);
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#card_1 > .card__content > div,
+#card_3 > .card__content > div {
   grid-area: text;
   width: 80%;
+  place-self: center;
+  text-align: left;
+  grid-auto-flow: row;
+  display: grid;
+  gap: 1em;
+  place-items: start;
+}
+
+#card_2 > .card__content > div {
+  grid-area: text;
   place-self: center;
   text-align: left;
   grid-auto-flow: row;
@@ -428,4 +467,42 @@ aside p {
 .about-info > p {
   font-size: 1.2em;
   font-family: "Nunito";
+}
+
+.about-info > ul {
+  padding: 0;
+  margin: 0;
+}
+
+.decorated {
+  color: #00ffcc;
+}
+
+table {
+  background: #012b39;
+  border-radius: 1em;
+  border-collapse: collapse;
+}
+th {
+  border-bottom: 1px solid #364043;
+  color: #e2b842;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+td {
+  color: #fff;
+  font-weight: 400;
+  padding: 0.65em 1em;
+  aspect-ratio: 1;
+}
+.disabled td {
+  color: #4f5f64;
+}
+tbody tr {
+  transition: background 0.25s ease;
+}
+tbody td:hover {
+  background: #014055;
 }
