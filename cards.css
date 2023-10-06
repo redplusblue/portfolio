@@ -6,6 +6,12 @@
   --outline-width: 0px;
 }
 
+/* Import Fonts */
+@font-face {
+  font-family: "Nunito";
+  src: url(assets/Fonts/Nunito-Medium.ttf);
+}
+
 #cards {
   padding-bottom: calc(
     var(--numcards) * var(--card-top-offset)
@@ -362,8 +368,35 @@ aside p {
   }
 }
 
-/* Smooth transition to expanded state */
+/* Variations of the word samir using different ASCII symbols */
+@keyframes samir {
+  0% {
+    content: "Samir";
+  }
+  14% {
+    content: "$amir";
+  }
+  28% {
+    content: "$@mir";
+  }
+  42% {
+    content: "$@ɱir";
+  }
+  56% {
+    content: "$@ɱ!r";
+  }
+  70% {
+    content: "$@ɱ!Я";
+  }
+  84% {
+    content: "who?";
+  }
+  98% {
+    content: "Samir";
+  }
+}
 
+/* Smooth transition to expanded state */
 .ui-text.show {
   opacity: 1;
   max-height: 1000px; /* Adjust to your desired maximum height */
@@ -375,4 +408,24 @@ aside p {
   overflow: hidden;
   opacity: 0;
   transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.about-info {
+}
+
+.about-info > h2 > span::before {
+  content: "Samir";
+  color: #7241ff;
+  animation: samir linear 8s infinite;
+  transition: all 0.2s ease-in-out;
+}
+
+.about-info > h2 > span:hover::before {
+  color: #7241ff;
+  animation: none;
+}
+
+.about-info > p {
+  font-size: 1.2em;
+  font-family: "Nunito";
 }

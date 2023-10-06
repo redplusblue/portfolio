@@ -8,13 +8,6 @@
     <link rel="stylesheet" href="cards.css" />
   </head>
   <body>
-    <!--Structure: 
-      | Navbar
-      | About -> Book (Animation TBD)
-      | Skills -> List
-      | Projects -> Scroll down
-      || Contact -> Another page 
-    -->
     <div id="progress"></div>
     <nav class="nav">
       <input type="checkbox" id="nav-check" />
@@ -26,12 +19,11 @@
         </label>
       </div>
 
-      <div class="nav-links">
-        <button class="nav-btn"><span>About</span></button>
-        <button class="nav-btn"><span>Skills</span></button>
-        <button class="nav-btn"><span>Projects</span></button>
-        <button class="nav-btn"><span>Contact</span></button>
-        <!-- <a href="" target="_blank">About</a> -->
+      <div class="nav-btns">
+        <button class="nav-btn" id="about-btn"><span>About</span></button>
+        <button class="nav-btn" id="skills-btn"><span>Skills</span></button>
+        <button class="nav-btn" id="projects-btn"><span>Projects</span></button>
+        <button class="nav-btn" id="contact-btn"><span>Contact</span></button>
       </div>
     </nav>
     <div class="greeting">Hi</div>
@@ -39,8 +31,8 @@
       <ul id="cards">
         <li class="card" id="card_1">
           <div class="card__content">
-            <div>
-              <h2>I'm Samir</h2>
+            <div class="about-info">
+              <h2>I'm <span></span></h2>
               <p>A computer programmer.</p>
               <p class="ui-text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
@@ -51,7 +43,7 @@
               <button class="ui-btn"><span>Read More</span></button>
             </div>
             <figure>
-              <img src="assets/image.png" alt="Image description" />
+              <img src="assets/Image.jpeg" alt="Image description" />
             </figure>
           </div>
         </li>

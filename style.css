@@ -27,7 +27,7 @@ html {
   width: 100%;
   height: 0.1em;
   background: white;
-
+  z-index: 999;
   transform-origin: 0 50%;
   animation: grow-progress auto linear;
   animation-timeline: --page-scroll;
@@ -74,21 +74,21 @@ body {
   display: none;
 }
 
-.nav > .nav-links {
+.nav > .nav-btns {
   display: flex;
   justify-content: center;
   font-size: 18px;
   gap: 10px;
 }
 
-.nav > .nav-links > a {
+.nav > .nav-btns > a {
   display: inline-block;
   padding: 13px 10px 13px 10px;
   text-decoration: none;
   color: #efefef;
 }
 
-.nav > .nav-links > a:hover {
+.nav > .nav-btns > a:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -125,7 +125,7 @@ body {
     height: 10px;
     border-top: 2px solid #eee;
   }
-  .nav > .nav-links {
+  .nav > .nav-btns {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -142,14 +142,14 @@ body {
     top: 50px;
     left: 0px;
   }
-  .nav > .nav-links > button {
+  .nav > .nav-btns > button {
     width: 150px;
   }
 
-  .nav > #nav-check:not(:checked) ~ .nav-links {
+  .nav > #nav-check:not(:checked) ~ .nav-btns {
     height: 0px;
   }
-  .nav > #nav-check:checked ~ .nav-links {
+  .nav > #nav-check:checked ~ .nav-btns {
     height: calc(100vh - 50px);
     overflow-y: auto;
   }
@@ -213,6 +213,7 @@ body {
 
 .nav-btn span {
   mix-blend-mode: difference;
+  user-select: none;
 }
 
 .nav-btn:after,
@@ -251,6 +252,10 @@ body {
 .nav-btn:hover:after,
 .nav-btn:hover:before {
   --progress: 0;
+}
+
+.active-btn {
+  color: #7241ff; /* Set your desired glow color */
 }
 
 .about {
