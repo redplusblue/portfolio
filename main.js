@@ -26,6 +26,7 @@ window.addEventListener("scroll", () => {
     });
   }
   if (Object.keys(cardOffsets).length === 0) {
+    // Store the current scroll position
     if (scrollPos !== 0) {
       window.scrollTo({
         top: 0,

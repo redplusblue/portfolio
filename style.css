@@ -33,6 +33,28 @@ html {
   animation-timeline: --page-scroll;
 }
 
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #7241ff #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 14px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #7241ff;
+  border-radius: 0px;
+  border: 3px solid #7241ff;
+}
+
 body {
   margin: 0px;
   font-family: "segoe ui";
