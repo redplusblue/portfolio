@@ -420,26 +420,35 @@ aside p {
   0% {
     content: "Samir";
   }
-  14% {
-    content: "$amir";
+  10% {
+    content: "5amir";
   }
-  28% {
-    content: "$@mir";
+  20% {
+    content: "$4mir";
   }
-  42% {
-    content: "$@ɱir";
+  30% {
+    content: "S@Wir";
   }
-  56% {
-    content: "$@ɱ!r";
+  40% {
+    content: "Saɱ1r";
+  }
+  50% {
+    content: "Sam!7";
+  }
+  60% {
+    content: "SamiЯ";
   }
   70% {
+    content: "54W17";
+  }
+  80% {
     content: "$@ɱ!Я";
   }
-  84% {
-    content: "who?";
+  90% {
+    content: "red + blue";
   }
-  98% {
-    content: "Samir";
+  100% {
+    content: "purple";
   }
 }
 
@@ -463,11 +472,11 @@ aside p {
 .about-info > h2 > span::before {
   content: "Samir";
   color: #7241ff;
-  animation: samir linear 8s infinite;
+  animation: samir linear 5500ms infinite alternate;
   transition: all 0.2s ease-in-out;
 }
 
-.about-info > h2 > span:hover::before {
+.about-info:hover > h2 > span::before {
   color: #7241ff;
   animation: none;
 }
@@ -482,9 +491,29 @@ aside p {
   margin: 0;
 }
 
+/** Icon Shine **/
+
 .decorated {
   color: #00ffcc;
 }
+
+@keyframes text-shine {
+  0% {
+    color: #00ffcc;
+  }
+  50% {
+    color: #ff6600; /* Change to the desired color at midpoint of the animation */
+  }
+  100% {
+    color: #00ffcc;
+  }
+}
+
+.about-info:hover .decorated {
+  animation: text-shine 10s infinite;
+}
+
+/** END Icon Shine **/
 
 .skills-container {
   /* outline: white 2px solid; */
@@ -495,6 +524,13 @@ aside p {
   overflow-x: scroll;
   overflow-y: hidden;
   transition: all 0.2s ease-in-out;
+  cursor: grab;
+}
+
+.skills-container:active,
+.skills-container:active > div,
+.skills-container:active > div:active {
+  cursor: grabbing;
 }
 
 .skills-container > div {
@@ -510,11 +546,12 @@ aside p {
 
 .skills-container > div > img {
   transition: all 0.2s ease-in-out;
+  border-radius: 1em;
 }
 
 .skills-container > div:hover {
   /* outline: #7141ff solid 1px; */
-  cursor: pointer;
+  cursor: grab;
   opacity: 1;
 }
 
