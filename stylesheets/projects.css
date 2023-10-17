@@ -1,0 +1,30 @@
+#card_3 {
+  --index: 3;
+}
+
+#card_3 > .card__content {
+  box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
+  /* background: rgb(255, 255, 255); */
+  backdrop-filter: blur(15px);
+  color: white;
+  border-radius: 1em;
+  overflow: hidden;
+  display: grid;
+  grid-template-areas: "text img";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  min-height: 80vh;
+  align-items: stretch;
+  outline: var(--outline-width) solid lime;
+}
+
+#card_3 > .card__content > div {
+  grid-area: text;
+  width: 80%;
+  place-self: center;
+  text-align: left;
+  grid-auto-flow: row;
+  display: grid;
+  gap: 1em;
+  place-items: start;
+}

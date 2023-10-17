@@ -14,8 +14,9 @@
 
 ## Skills Section:
 
-    - [ ] Set skill img elements as div background (or transparent divs) to prevent dragging (Ghost images)
-    - [ ] Set up JS based skill navigation (And image loading) based on Option picked.
+    - [x] Set skill img elements as div background (or transparent divs) to prevent dragging (Ghost images)
+    - [x] Set up JS based skill navigation (And image loading) based on Option picked.
+    - [ ] Nitpick a bit about what option goes where. Make loading smoother if possible.
 
 ## Projects Section[TBD]:
 

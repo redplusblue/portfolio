@@ -1,0 +1,160 @@
+#card_2 {
+  --index: 2;
+}
+
+#card_2 > .card__content {
+  backdrop-filter: blur(15px);
+  background-color: rgba(0, 0, 0, 0.137);
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+  grid-template-rows: auto auto;
+  min-height: 80vh;
+  max-width: 80vw;
+  align-items: center;
+  font-family: "Nunito";
+}
+
+#card_2 > .card__content > div {
+  /* grid-area: text;
+  place-self: center;
+  text-align: left;
+  grid-auto-flow: row;
+  display: grid;
+  gap: 1em;
+  place-items: start; */
+}
+
+.skills-container {
+  /* outline: white 2px solid; */
+  width: 90%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  transition: all 0.2s ease-in-out;
+  cursor: grab;
+}
+
+.skills-container:active,
+.skills-container:active > div,
+.skills-container:active > div:active {
+  cursor: grabbing;
+}
+
+.skills-container > div {
+  /* outline: #7241ff solid 1px; */
+  padding: 0.75em;
+  margin: 1em;
+  opacity: 0.9;
+  border-radius: 1em;
+  user-select: none;
+  font-size: small;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.skill {
+  transition: all 0.2s ease-in-out;
+  border-radius: 1em;
+}
+
+.skills-container > div:hover {
+  /* outline: #7141ff solid 1px; */
+  cursor: grab;
+  opacity: 1;
+}
+
+.skills-container > div:hover > .skill {
+  transform: scale(1.05);
+}
+
+.skills-container > div:hover > .skill-name {
+  max-height: 100px;
+  opacity: 1; /* Set opacity to 1 on hover */
+}
+
+.skill {
+  height: 100px;
+  width: 100px;
+}
+
+.skill-name {
+  max-height: 0;
+  font-family: "Nunito";
+  font-size: 1.2em;
+  font-weight: 600;
+  user-select: text;
+  cursor: text;
+  margin-top: 15px;
+  overflow: hidden; /* Hide overflowing content */
+  opacity: 0; /* Start with opacity set to 0 */
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Faster transition */
+}
+
+/* <select> styles */
+select {
+  /* Reset */
+  appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  /* Personalize */
+  font-family: "Nunito";
+  width: 20rem;
+  padding: 1rem 4rem 1rem 1rem;
+  background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
+    linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+  color: white;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.25s ease-in-out;
+  /* Remove IE arrow */
+  &::-ms-expand {
+    display: none;
+  }
+  /* Remove focus outline */
+  &:focus {
+    outline: none;
+    transform: scale(1.05);
+  }
+}
+
+/* <option> colors */
+option {
+  color: black;
+  background-color: var(--option-bg);
+  display: flex;
+  white-space: pre;
+  min-height: 20px;
+  padding: 0px 2px 1px;
+  font-size: 1.2em;
+  font-family: "Nunito";
+  font-weight: 600;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+/* Scrollbar Styling */
+#card_2 > .card__content:hover > .skills-container::-webkit-scrollbar-thumb {
+  display: block;
+}
+
+.skills-container::-webkit-scrollbar-thumb {
+  background-color: #7241ff;
+  border-radius: 10px;
+  display: none;
+}
+
+.skills-container::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 10px;
+  display: none;
+}
+
+.skills-container:hover::-webkit-scrollbar-thumb {
+  display: block;
+}
