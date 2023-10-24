@@ -16,6 +16,7 @@
 
     - [x] Set skill img elements as div background (or transparent divs) to prevent dragging (Ghost images)
     - [x] Set up JS based skill navigation (And image loading) based on Option picked.
+    - [ ] Wait for navbar button fix, then re-implement auto scroll based on active.
     - [ ] Nitpick a bit about what option goes where. Make loading smoother if possible.
 
 ## Projects Section[TBD]:

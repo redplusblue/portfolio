@@ -18,8 +18,18 @@ class Element {
 export const skillElements = [
   new Element("HTML5", "../assets/Icons/html5.svg", "frontend", "Language"),
   new Element("CSS3", "../assets/Icons/css3.svg", "frontend", "Language"),
-  new Element("JS", "../assets/Icons/javascript.svg", "frontend", "Language"),
-  new Element("TS", "../assets/Icons/typescript.svg", "frontend", "Language"),
+  new Element(
+    "JavaScript",
+    "../assets/Icons/javascript.svg",
+    "frontend",
+    "Language"
+  ),
+  new Element(
+    "TypeScript",
+    "../assets/Icons/typescript.svg",
+    "frontend",
+    "Language"
+  ),
   new Element("Jquery", "../assets/Icons/jquery.svg", "frontend", "Framework"),
   new Element("React", "../assets/Icons/react.svg", "frontend", "Framework"),
   new Element("Svelte", "../assets/Icons/svelte.svg", "frontend", "Framework"),
@@ -57,7 +67,7 @@ export const skillElements = [
   // Tools
   new Element("Webpack", "../assets/Icons/webpack.svg", "backend", "Tool"),
   new Element("NPM", "../assets/Icons/npm.svg", "backend", "Tool"),
-  new Element("Vite", "../assets/Icons/vite.svg", "backend", "Tool"),
+  // new Element("Vite", "../assets/Icons/vite.svg", "backend", "Tool"),
   new Element("Git", "../assets/Icons/git.svg", "backend", "Tool"),
   new Element(
     "Android Studio",

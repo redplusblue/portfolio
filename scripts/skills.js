@@ -107,3 +107,12 @@ select.addEventListener("change", (e) => {
     skillsContainer.appendChild(wrapper);
   });
 });
+
+// Auto Scroll skills
+let isScrolling = true;
+let scrollPos = skillsContainer.scrollLeft;
+let scrollInterval = setInterval(() => {
+  if (isScrolling) {
+    skillsContainer.scrollLeft += 4;
+  }
+}, 20);

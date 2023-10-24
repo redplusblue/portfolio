@@ -2,6 +2,25 @@
   --index: 3;
 }
 
+.card__content > h2 {
+  font-family: "Nunito";
+  font-weight: 300;
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  /*Problem with this*/
+  overflow: hidden;
+}
+
+.preview > figure {
+  border-radius: 1em;
+}
+
 #card_3 > .card__content {
   box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
   /* background: rgb(255, 255, 255); */
@@ -9,12 +28,13 @@
   color: white;
   border-radius: 1em;
   overflow: hidden;
-  display: grid;
-  grid-template-areas: "text img";
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  min-height: 80vh;
-  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  max-height: 80vh;
+  width: 80vw;
   outline: var(--outline-width) solid lime;
 }
 
