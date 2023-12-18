@@ -282,3 +282,16 @@ body {
 .nav-btn:hover:before {
   --progress: 0;
 }
+
+.decorated > a:visited {
+  color: inherit;
+}
+
+.decorated > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.decorated > a:hover {
+  text-decoration: underline;
+}

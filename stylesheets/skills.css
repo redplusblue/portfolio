@@ -62,7 +62,6 @@
 }
 
 .skills-container > div:hover {
-  /* outline: #7141ff solid 1px; */
   cursor: grab;
   opacity: 1;
 }
@@ -73,7 +72,7 @@
 
 .skills-container > div:hover > .skill-name {
   max-height: 100px;
-  opacity: 1; /* Set opacity to 1 on hover */
+  opacity: 1;
 }
 
 .skill {

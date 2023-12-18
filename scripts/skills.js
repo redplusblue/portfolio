@@ -5,6 +5,11 @@ let isMouseDown = false;
 let startX;
 let scrollLeft;
 
+skillsContainer.addEventListener("mouseover", () => {
+  skillsContainer.classList.remove("auto-scroll");
+  clearInterval(scrollInterval);
+});
+
 skillsContainer.addEventListener("mousedown", function (e) {
   isMouseDown = true;
   startX = e.pageX - skillsContainer.offsetLeft;
@@ -17,6 +22,12 @@ skillsContainer.addEventListener("mouseup", function () {
 
 skillsContainer.addEventListener("mouseleave", function () {
   isMouseDown = false;
+  skillsContainer.classList.add("auto-scroll");
+  scrollInterval = setInterval(() => {
+    if (skillsContainer.classList.contains("auto-scroll")) {
+      skillsContainer.scrollLeft += 4;
+    }
+  }, 20);
 });
 
 skillsContainer.addEventListener("mousemove", function (e) {
@@ -45,6 +56,14 @@ let tools = elements.filter(
     element.type === "Tool" ||
     element.type === "Testing"
 );
+
+// Auto Scroll skills
+let scrollPos = skillsContainer.scrollLeft;
+let scrollInterval = setInterval(() => {
+  if (skillsContainer.classList.contains("auto-scroll")) {
+    skillsContainer.scrollLeft += 4;
+  }
+}, 20);
 
 // Skill Structure -> Wrapper Div(Div with image bg, Div with name)
 elements.forEach((element) => {
@@ -107,12 +126,3 @@ select.addEventListener("change", (e) => {
     skillsContainer.appendChild(wrapper);
   });
 });
-
-// Auto Scroll skills
-let isScrolling = true;
-let scrollPos = skillsContainer.scrollLeft;
-let scrollInterval = setInterval(() => {
-  if (isScrolling) {
-    skillsContainer.scrollLeft += 4;
-  }
-}, 20);
