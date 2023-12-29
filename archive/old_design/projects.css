@@ -122,7 +122,6 @@
 .links > a {
   display: flex;
   align-items: center;
-  gap: 0.5em;
   color: white;
   text-decoration: none;
   font-family: "Nunito";
@@ -132,7 +131,7 @@
 }
 
 .links > a:hover {
-  color: #7241ff;
+  color: #00ffcc;
   text-decoration: underline;
   transform: scale(1.1);
 }

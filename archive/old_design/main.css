@@ -25,12 +25,11 @@ html {
 }
 
 *::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(0, 0, 0, 0.65);
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #7241ff;
-  border: 3px solid #7241ff;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* == End Scrollbar CSS == */
@@ -53,9 +52,9 @@ body {
 .nav {
   height: fit-content;
   width: fit-content;
-  /* position: relative; */
   /* make sticky to top */
   position: sticky;
+  top: -5px;
   z-index: 1;
   backdrop-filter: blur(10px);
 }
@@ -98,18 +97,125 @@ body {
 }
 
 /* Nav Buttons */
+.nav-btn,
+.nav-btn *,
+.nav-btn :after,
+.nav-btn :before,
+.nav-btn:after,
+.nav-btn:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+
+.nav-btn {
+  -webkit-tap-highlight-color: transparent;
+  background-color: #00000000;
+  opacity: 0.9;
+  background-image: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 100%;
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.nav-btn:disabled {
+  cursor: default;
+}
+
+.nav-btn:-moz-focusring {
+  outline: auto;
+}
+
+.nav-btn [hidden] {
+  display: none;
+}
+
+.nav-btn {
+  /* border-radius: 99rem; */
+  /* outline: 1px solid #fff; */
+  overflow: hidden;
+  padding: 0.8rem 1rem;
+  position: relative;
+}
+
+.nav-btn span {
+  mix-blend-mode: difference;
+  user-select: none;
+}
+
+.nav-btn:after,
+.nav-btn:before {
+  background: linear-gradient(
+    90deg,
+    #fff 25%,
+    transparent 0,
+    transparent 50%,
+    #fff 0,
+    #fff 75%,
+    transparent 0
+  );
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: translateY(var(--progress, 100%));
+  transition: transform 0.2s ease;
+}
+
+.nav-btn:after {
+  --progress: -100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 25%,
+    #fff 0,
+    #fff 50%,
+    transparent 0,
+    transparent 75%,
+    #fff 0
+  );
+  z-index: -1;
+}
+
+.nav-btn:hover:after,
+.nav-btn:hover:before {
+  --progress: 0;
+}
 
 .decorated > a:visited {
   color: inherit;
 }
 
 .decorated > a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease-in;
 }
 
 .decorated > a:hover {
   text-decoration: underline;
+}
+
+.link {
+  color: inherit;
+  text-decoration: underline;
+  transition: all 0.3s ease-in;
+  display: inline-block;
+}
+
+.link:hover {
+  color: #00ffcc;
+  transform: scale(1.05);
+}
+
+.link:active {
+  transform: scale(0.9);
 }
 
 /* Mobile Nav */
@@ -172,3 +278,14 @@ body {
     overflow-y: auto;
   }
 }
+
+/* 🏗️ */
+/* .items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+} */

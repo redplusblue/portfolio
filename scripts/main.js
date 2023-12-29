@@ -1,18 +1,38 @@
-// Calculate the offset of each card and stores it in an object
-const cardOffsets = {};
-// Scrolls to the card with the given id using the stored offsets
-function scrollToCard(cardId) {
-  cardId = "card_" + cardId;
-  const offset = cardOffsets[cardId];
-  if (offset !== undefined) {
-    window.scrollTo({
-      top: offset,
-      behavior: "smooth", // Adds smooth scrolling behavior
-    });
-  } else {
-    console.error(`Offset not found for card with id ${cardId}.`);
-  }
-}
+// Idea #2: Scroll untill conditions are met
+// Conditions: if card is more than 50% in view, then it is the active card.
+// If the card is the active card, then the button is active.
+
+// POC: Show the current card's scroll position and top and bottom offsets in the console
+window.addEventListener("scroll", () => {
+  const scrollPos = window.scrollY;
+  console.log("scrollPos: ", scrollPos);
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    console.log(
+      card.id,
+      "offsetTop: ",
+      card.offsetTop,
+      "offsetBottom: ",
+      card.offsetTop + card.offsetHeight
+    );
+  });
+});
+
+// // Calculate the offset of each card and stores it in an object
+// const cardOffsets = {};
+// // Scrolls to the card with the given id using the stored offsets
+// function scrollToCard(cardId) {
+//   cardId = "card_" + cardId;
+//   const offset = cardOffsets[cardId];
+//   if (offset !== undefined) {
+//     window.scrollTo({
+//       top: offset,
+//       behavior: "smooth", // Adds smooth scrolling behavior
+//     });
+//   } else {
+//     console.error(`Offset not found for card with id ${cardId}.`);
+//   }
+// }
 
 // Change the active button when scrolling - Closed for debugging
 // window.addEventListener("scroll", () => {
@@ -62,31 +82,48 @@ function scrollToCard(cardId) {
 //   }
 // });
 
-// Idea: If at top, scroll to whatever card is asked for by using scrollTO(cardId)
+const scroller = (dest) => {};
 
-// Navbar buttons
-document.querySelectorAll(".nav-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    if (document.querySelector(".active-btn")) {
-      document.querySelector(".active-btn").classList.remove("active-btn");
-    }
-    switch (btn.innerText) {
-      case "ABOUT":
-        scrollToCard("1");
-        break;
-      case "SKILLS":
-        scrollToCard("2");
-        break;
-      case "PROJECTS":
-        scrollToCard("3");
-        break;
-      case "CONTACT":
-        // TBD
-        alert("Contact me!");
-        break;
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollTo = (element) => {
+    console.log(
+      element,
+      document.querySelector(element),
+      document.querySelector(element).scrollIntoView
+    );
+    window.scrollTo({
+      top: document.querySelector(element).offsetTop,
+      behavior: "smooth",
+    });
+  };
 
-      default:
-        break;
-    }
+  // Idea: If at top, scroll to whatever card is asked for by using scrollTO(cardId)
+
+  // Navbar buttons
+  document.querySelectorAll(".nav-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (document.querySelector(".active-btn")) {
+        document.querySelector(".active-btn").classList.remove("active-btn");
+      }
+      btn.classList.add("active-btn");
+      console.log(btn.innerText);
+      switch (btn.innerText) {
+        case "ABOUT":
+          scrollTo("#card_1");
+          break;
+        case "SKILLS":
+          scrollTo("#card_2");
+          break;
+        case "PROJECTS":
+          scrollTo("#card_3");
+          break;
+        case "CONTACT":
+          scrollTo("aside");
+          break;
+
+        default:
+          break;
+      }
+    });
   });
 });
