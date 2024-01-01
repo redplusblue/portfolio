@@ -5,11 +5,6 @@ let isMouseDown = false;
 let startX;
 let scrollLeft;
 
-// skillsContainer.addEventListener("mouseover", () => {
-//   skillsContainer.classList.remove("auto-scroll");
-//   clearInterval(scrollInterval);
-// });
-
 skillsContainer.addEventListener("mousedown", function (e) {
   isMouseDown = true;
   startX = e.pageX - skillsContainer.offsetLeft;
@@ -19,16 +14,6 @@ skillsContainer.addEventListener("mousedown", function (e) {
 skillsContainer.addEventListener("mouseup", function () {
   isMouseDown = false;
 });
-
-// skillsContainer.addEventListener("mouseleave", function () {
-//   isMouseDown = false;
-//   skillsContainer.classList.add("auto-scroll");
-//   scrollInterval = setInterval(() => {
-//     if (skillsContainer.classList.contains("auto-scroll")) {
-//       skillsContainer.scrollLeft += 4;
-//     }
-//   }, 20);
-// });
 
 skillsContainer.addEventListener("mousemove", function (e) {
   if (!isMouseDown) return;
@@ -58,12 +43,25 @@ let tools = elements.filter(
 );
 
 // Auto Scroll skills
+// skillsContainer.addEventListener("mouseover", () => {
+//   skillsContainer.classList.remove("auto-scroll");
+//   clearInterval(scrollInterval);
+// });
 // let scrollPos = skillsContainer.scrollLeft;
 // let scrollInterval = setInterval(() => {
 //   if (skillsContainer.classList.contains("auto-scroll")) {
 //     skillsContainer.scrollLeft += 4;
 //   }
 // }, 20);
+// skillsContainer.addEventListener("mouseleave", function () {
+//   isMouseDown = false;
+//   skillsContainer.classList.add("auto-scroll");
+//   scrollInterval = setInterval(() => {
+//     if (skillsContainer.classList.contains("auto-scroll")) {
+//       skillsContainer.scrollLeft += 4;
+//     }
+//   }, 20);
+// });
 
 // Skill Structure -> Wrapper Div(Div with image bg, Div with name)
 elements.forEach((element) => {
@@ -125,4 +123,24 @@ select.addEventListener("change", (e) => {
     wrapper.appendChild(title);
     skillsContainer.appendChild(wrapper);
   });
+});
+
+// Skill show/hide
+let skillBtn = document.querySelector("#show-skills");
+skillBtn.addEventListener("click", () => {
+  let skillsContainer = document.querySelector(".skills-container");
+  let skillSelector = document.querySelector(".skill-selector");
+  skillsContainer.classList.toggle("hide");
+  skillSelector.classList.toggle("hide");
+  if (!skillsContainer.classList.contains("hide")) {
+    skillBtn.children[0].innerHTML = "Hide";
+    const readMoreBtn = document
+      .querySelector("#about-card")
+      .querySelector("#read-more");
+      if (readMoreBtn.children[0].innerHTML === "Read Less") {
+        readMoreBtn.click();
+      }
+  } else {
+    skillBtn.children[0].innerHTML = "Show";
+  }
 });

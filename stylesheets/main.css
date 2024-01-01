@@ -1,7 +1,7 @@
 /* Fonts */
 @font-face {
   font-family: "Rubik";
-  src: url("../assets//Fonts/RubikScribble-Regular.ttf");
+  src: url("../assets/Fonts/RubikScribble-Regular.ttf");
 }
 
 @font-face {
@@ -12,6 +12,11 @@
 html,
 body {
   scroll-behavior: smooth;
+  margin: 1px;
+}
+
+html {
+  scroll-snap-type: y mandatory;
 }
 
 body {
@@ -47,19 +52,29 @@ body {
 /* == End Scrollbar CSS == */
 
 /* Nav Bar */
-.nav {
+
+.nav-container {
   /* Align to Top Left */
-  position: absolute;
+  position: sticky;
   top: 0;
   left: 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
   height: fit-content;
-  width: fit-content;
+  width: 100%;
+  align-items: flex-start;
+  /* Make always be on top */
+  z-index: 100;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  /* make sticky to top */
-  z-index: 1;
+  gap: 20px;
+  opacity: 0;
+  animation: appear 2s ease-in-out 2s forwards;
 }
 
 .nav > .nav-btns {
@@ -126,12 +141,10 @@ body {
 }
 
 .nav-btn {
-  /* border-width: 1px; */
   padding: 1rem 1rem;
   position: relative;
   text-transform: uppercase;
   width: 100%;
-  /* opacity: 0.9; */
 }
 
 .nav-btn:before {
@@ -180,6 +193,14 @@ body {
   animation: move-up-alternate 0.3s ease forwards;
 }
 
+.active-btn {
+  color: #00ffcc;
+}
+
+.active-btn:hover {
+  color: #7241ff;
+}
+
 @-webkit-keyframes move-up-alternate {
   0% {
     transform: translateY(0);
@@ -216,45 +237,30 @@ body {
   }
 }
 
-/* Greeting */
-.greeting {
-  /* Align to center */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  /* Font */
-  font-size: 3rem;
-  font-weight: 700;
-  font-family: monospace;
-  color: white;
-  /* Animation */
-  width: 14ch;
-  animation: typing 2s steps(14), caret 0.5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 1px solid white;
-}
+@media screen and (max-width: 600px) {
+  .nav-container {
+    align-items: center;
+    width: 100%;
+  }
 
-@keyframes typing {
-  from {
-    width: 0;
+  .nav-btns {
+    gap: 0px;
+  }
+
+  .nav-btn {
+    padding: 10px 10px;
+    font-size: 16px;
   }
 }
 
-@keyframes caret {
-  50% {
-    border-color: transparent;
+@media screen and (max-width: 270px) {
+  body {
+    display: none;
   }
 }
 
-.samir {
-  color: #7241ff;
-  transition: all 0.3s ease-in-out;
-}
-
-.samir:hover {
-  color: #00ffcc;
+@media screen and (max-height: 100px) {
+  body {
+    display: none;
+  }
 }

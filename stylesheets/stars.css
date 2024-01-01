@@ -30,7 +30,13 @@
   transform: translate3d(104em, 0, 0);
   animation: fall var(--fall-duration) var(--fall-delay) linear infinite,
     tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
+  transition: color 0.3s ease-in-out;
 }
+
+.star.day {
+  --star-color: #00ffcc;
+}
+
 @media screen and (max-width: 750px) {
   .star {
     animation: fall var(--fall-duration) var(--fall-delay) linear infinite;
@@ -389,7 +395,6 @@
   height: fit-content;
   display: flex;
   justify-content: center;
-  /* Add any additional styling as needed */
 }
 
 .moon {

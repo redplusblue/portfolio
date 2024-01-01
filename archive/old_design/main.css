@@ -54,7 +54,7 @@ body {
   width: fit-content;
   /* make sticky to top */
   position: sticky;
-  top: -5px;
+  top: 0px;
   z-index: 1;
   backdrop-filter: blur(10px);
 }
