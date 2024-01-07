@@ -23,11 +23,11 @@
 
 ## **Click on the pictures/the link below to try!**
 
-<a href="https://samirkabra.me"><img src="preview/live-use.gif" alt="Live Use Preview GIF" title="Click Me!"></a>
-<a href="https://samirkabra.me"><img src="preview/about.png" alt="Layout Preview" title="Click Me!"></a>
-<a href="https://samirkabra.me"><img src="preview/projects.png" alt="Layout Preview" title="Click Me!"></a>
-<a href="https://samirkabra.me"><img src="preview/contact.png" alt="Layout Preview" title="Click Me!"></a>
-<a href="https://samirkabra.me"><img src="preview/phone.png" alt="Layout Preview" title="Click Me!"></a>
+<a href="https://samirkabra.me"><img src="preview/live-use.gif" alt="Live Use Preview GIF" title="Click Me!" target="_blank"></a>
+<a href="https://samirkabra.me"><img src="preview/about.png" alt="Layout Preview" title="Click Me!" target="_blank"></a>
+<a href="https://samirkabra.me"><img src="preview/projects.png" alt="Layout Preview" title="Click Me!" target="_blank"></a>
+<a href="https://samirkabra.me"><img src="preview/contact.png" alt="Layout Preview" title="Click Me!" target="_blank"></a>
+<a href="https://samirkabra.me"><img src="preview/phone.png" alt="Layout Preview" title="Click Me!" target="_blank"></a>
 
 ## [Click to open](https://samirkabra.me)
 
